@@ -55,7 +55,7 @@ def run_code():
     messagebox.showinfo("High Throughput SQL Data Retriever", "Data have been retrieved and saved to the destination folder")
 
 root = tk.Tk()
-root.title("High Throughput Data Retriever")
+root.title("High Throughput SQL Data Retriever")
 
 empty = tk.Label(root, text="")
 empty.grid(row=0, column=1)
