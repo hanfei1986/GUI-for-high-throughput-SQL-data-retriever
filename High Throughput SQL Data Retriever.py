@@ -2,7 +2,7 @@ import pandas as pd
 import pymssql
 
 IDs = pd.read_excel("C:/Users/fhan/Desktop//High Throughput SQL Data Retriever Test/IDs.xlsx",header=None).iloc[:,0]
-measurements = pd.read_excel("C:/Users/fhan/Desktop/High Throughput SQL Data Retriever Test/measurements.xlsx",header=None).iloc[:,0]
+measurements = pd.read_excel("C:/Users/fhan/Desktop/High Throughput SQL Data Retriever Test/Measurements.xlsx",header=None).iloc[:,0]
 
 conn = pymssql.connect(server='XXXXXX', port=00000)
 
@@ -43,4 +43,4 @@ data = pd.DataFrame(data,columns=["Sample ID","Measurement","Measured Value"])
 data = data.pivot(index=['Sample ID'], columns='Measurement', values='Measured Value')
 data = data.reset_index()
 
-data.to_excel("C:/Users/fhan/Desktop/Python scripts/Finished/High Throughput Data Retriever/High Throughput SQL Data Retriever Test/Retrieved data.xlsx", index=False)
+data.to_excel("C:/Users/fhan/Desktop/High Throughput SQL Data Retriever Test/Retrieved data.xlsx", index=False)
