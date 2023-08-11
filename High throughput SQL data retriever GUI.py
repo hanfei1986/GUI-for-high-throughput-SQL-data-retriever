@@ -87,7 +87,7 @@ empty.grid(row=6, column=1)
 empty = tk.Label(root, text="")
 empty.grid(row=7, column=1)
 
-def open_short_file():
+def open_measurement_file():
     file_path = filedialog.askopenfilename()
     measurement_path_entry.delete(0, tk.END)
     measurement_path_entry.insert(0, file_path)
@@ -96,7 +96,7 @@ measurement_path_label = tk.Label(root, text="Excel file (xlsx) for measurement 
 measurement_path_label.grid(row=8, column=0)
 measurement_path_entry = tk.Entry(root, width=120)
 measurement_path_entry.grid(row=8, column=1)
-measurement_path_button = tk.Button(root, text="Select File", command=open_short_file)
+measurement_path_button = tk.Button(root, text="Select File", command=open_measurement_file)
 measurement_path_button.grid(row=8, column=2)
 measurement_path_note = tk.Label(root, text='What is this for: Read measurment names from a Excel spreadsheet. The measurement names should be put in the first column in the spreadsheet.')
 measurement_path_note.grid(row=9, column=1)
