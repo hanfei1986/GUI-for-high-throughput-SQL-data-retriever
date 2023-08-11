@@ -3,9 +3,9 @@ import pymssql
 import tkinter as tk
 from tkinter import filedialog, messagebox
 
-def main(ID_path,short_path,save_to_path):
+def main(ID_path,measurement_path,save_to_path):
     IDs = pd.read_excel(ID_path,header=None).iloc[:,0]
-    measurements = pd.read_excel(short_path,header=None).iloc[:,0]
+    measurements = pd.read_excel(measurement_path,header=None).iloc[:,0]
 
     conn = pymssql.connect(server='XXXXXX', port=00000)
 
@@ -49,9 +49,9 @@ def main(ID_path,short_path,save_to_path):
 
 def run_code():
     ID_path = ID_path_entry.get()
-    short_path = short_path_entry.get()
+    measurement_path = measurement_path_entry.get()
     save_to_path = save_to_folder.get()
-    main(ID_path,short_path,save_to_path)
+    main(ID_path,measurement_path,save_to_path)
     messagebox.showinfo("High Throughput SQL Data Retriever", "Data have been retrieved and saved to the destination folder")
 
 root = tk.Tk()
@@ -89,17 +89,17 @@ empty.grid(row=7, column=1)
 
 def open_short_file():
     file_path = filedialog.askopenfilename()
-    short_path_entry.delete(0, tk.END)
-    short_path_entry.insert(0, file_path)
+    measurement_path_entry.delete(0, tk.END)
+    measurement_path_entry.insert(0, file_path)
 
-short_path_label = tk.Label(root, text="Excel file (xlsx) for measurement names:", font=('Times New Roman', 15, 'bold'))
-short_path_label.grid(row=8, column=0)
-short_path_entry = tk.Entry(root, width=120)
-short_path_entry.grid(row=8, column=1)
-short_path_button = tk.Button(root, text="Select File", command=open_short_file)
-short_path_button.grid(row=8, column=2)
-short_path_note = tk.Label(root, text='What is this for: Read measurment names from a Excel spreadsheet. The measurement names should be put in the first column in the spreadsheet.')
-short_path_note.grid(row=9, column=1)
+measurement_path_label = tk.Label(root, text="Excel file (xlsx) for measurement names:", font=('Times New Roman', 15, 'bold'))
+measurement_path_label.grid(row=8, column=0)
+measurement_path_entry = tk.Entry(root, width=120)
+measurement_path_entry.grid(row=8, column=1)
+measurement_path_button = tk.Button(root, text="Select File", command=open_short_file)
+measurement_path_button.grid(row=8, column=2)
+measurement_path_note = tk.Label(root, text='What is this for: Read measurment names from a Excel spreadsheet. The measurement names should be put in the first column in the spreadsheet.')
+measurement_path_note.grid(row=9, column=1)
 
 empty = tk.Label(root, text="")
 empty.grid(row=10, column=1)
